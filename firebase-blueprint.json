@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "Post": {
+      "title": "Post",
+      "description": "A political brief or newspaper blog article document",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the post" },
+        "title": { "type": "string", "description": "Compelling cerebral headline" },
+        "slug": { "type": "string", "description": "SEO-friendly relative URL identifier" },
+        "summary": { "type": "string", "description": "Short executive summary deck" },
+        "content": { "type": "string", "description": "Markdown formatted rich article body" },
+        "category": { "type": "string", "description": "Article categorization" },
+        "youtubeId": { "type": "string", "description": "Optional embedded YouTube video identifier" },
+        "imageUrls": { "type": "array", "description": "Optional illustration links" },
+        "author": { "type": "string", "description": "Article author full name" },
+        "date": { "type": "string", "format": "date", "description": "Publication date" },
+        "readTime": { "type": "number", "description": "Expected read duration in minutes" },
+        "isFeatured": { "type": "boolean", "description": "Whether the post is featured on key headline slots" },
+        "isDraft": { "type": "boolean", "description": "Draft or published state indicator" }
+      },
+      "required": ["id", "title", "slug", "summary", "content", "category", "author", "date"]
+    },
+    "UrgentNews": {
+      "title": "UrgentNews",
+      "description": "Urgent crawling ticker news bulletins on the homepage",
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "color": { "type": "string" },
+        "style": { "type": "string" }
+      },
+      "required": ["text"]
+    }
+  },
+  "firestore": {
+    "/posts/{postId}": {
+      "schema": "Post",
+      "description": "The master repository of political briefs and blogs"
+    },
+    "/settings/urgent_news": {
+      "schema": { "type": "object", "properties": { "news": { "type": "array" } } },
+      "description": "The active news bulletins ticker banner state"
+    }
+  }
+}

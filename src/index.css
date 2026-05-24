@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Lora", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-brand-red: #9D3534;
+  --color-brand-teal: #2C5E5A;
+  --color-brand-tan: #D4A359;
+  --color-brand-paper: #F9F8F6;
+  --color-brand-ink: #141414;
+}
+
+/* Custom newspaper styling rules */
+body {
+  background-color: var(--color-brand-paper); /* Clean warm newsprint paper */
+  color: var(--color-brand-ink); /* Rich dark ink key */
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Highlight style */
+::selection {
+  background: var(--color-brand-ink);
+  color: var(--color-brand-paper);
+}
+
+/* Scrollbar styling for high-contrast newspaper */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-ink);
+  border-radius: 0px;
+}
+
